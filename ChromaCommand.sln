@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChromaCommand.Api", "ChromaCommandAPI\ChromaCommand.Api.csproj", "{305219DF-1DBF-4506-A6F4-E6A8C4C8E52C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChromaCommand.Client", "ChromaCommandClient\ChromaCommand.Client.csproj", "{442F4465-4186-4F80-B91E-C164DA4266BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChromaCommand.Dto", "ChromaCommandDto\ChromaCommand.Dto.csproj", "{0C7DB8E6-1A1D-469A-8668-40AD8E7310F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChromaCommand.Api.Test", "ChromaCommand.Api.Test\ChromaCommand.Api.Test.csproj", "{E9A53FEB-8B91-475E-8522-EE9954143551}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{305219DF-1DBF-4506-A6F4-E6A8C4C8E52C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{305219DF-1DBF-4506-A6F4-E6A8C4C8E52C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{305219DF-1DBF-4506-A6F4-E6A8C4C8E52C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{305219DF-1DBF-4506-A6F4-E6A8C4C8E52C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{442F4465-4186-4F80-B91E-C164DA4266BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{442F4465-4186-4F80-B91E-C164DA4266BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{442F4465-4186-4F80-B91E-C164DA4266BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{442F4465-4186-4F80-B91E-C164DA4266BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C7DB8E6-1A1D-469A-8668-40AD8E7310F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C7DB8E6-1A1D-469A-8668-40AD8E7310F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C7DB8E6-1A1D-469A-8668-40AD8E7310F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C7DB8E6-1A1D-469A-8668-40AD8E7310F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9A53FEB-8B91-475E-8522-EE9954143551}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9A53FEB-8B91-475E-8522-EE9954143551}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9A53FEB-8B91-475E-8522-EE9954143551}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9A53FEB-8B91-475E-8522-EE9954143551}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
