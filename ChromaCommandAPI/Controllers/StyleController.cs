@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Configuration;
+using System.Linq;
 using System.Web.Http;
 using ChromaCommand.Api.Models;
 using ChromaCommand.Api.Services;
@@ -20,7 +21,7 @@ namespace ChromaCommand.Api.Controllers
         {
             var style = _styleParser.Parse(message.text);
 
-            const string connectionString = "Connection string from Sender role of Azure Service Bus Queue";
+            var connectionString = ConfigurationManager.AppSettings["ChromaStyleQueueWriter"];
             var queue = QueueClient.CreateFromConnectionString(connectionString, "ChromaCommandQueue");
             queue.Send(new BrokeredMessage(style));
 

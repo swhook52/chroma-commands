@@ -17,10 +17,10 @@ namespace ChromaCommand.Api.Test
         }
 
         [TestMethod]
-        public void Parse_MultileCommands_IdentifiesCommands()
+        public void Parse_MultipleCommands_IdentifiesCommands()
         {
             // Arrange
-            var rawCommand = "Pulse #FF0000 THEN clear THEN spell steve THEN wait 1000 THEN pulse #00FF00";
+            var rawCommand = "Pulse #FF0000 THEN clear THEN spell steve #0000FF THEN wait 1000 THEN pulse #00FF00";
             
             // Act
             var result = _uut.Parse(rawCommand);
@@ -62,7 +62,7 @@ namespace ChromaCommand.Api.Test
         public void Parse_Spell_MapsToStyle()
         {
             // Arrange
-            var rawCommand = "spell unittest";
+            var rawCommand = "spell unittest #FF0000";
 
             // Act
             var result = _uut.Parse(rawCommand);
@@ -71,6 +71,7 @@ namespace ChromaCommand.Api.Test
             var command = result.Commands[0];
             Assert.AreEqual(ChromaAction.Spell, command.Action);
             Assert.AreEqual("unittest", command.Parameter);
+            Assert.AreEqual(Color.FromArgb(1, 255, 0, 0), command.Color);
         }
 
         [TestMethod]
@@ -146,6 +147,5 @@ namespace ChromaCommand.Api.Test
             var command = result.Commands[0];
             Assert.AreEqual(ChromaAction.Cycle, command.Action);
         }
-
     }
 }

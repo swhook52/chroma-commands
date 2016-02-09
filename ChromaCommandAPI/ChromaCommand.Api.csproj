@@ -131,6 +131,7 @@
   <ItemGroup>
     <Content Include="apiapp.json" />
     <None Include="Properties\PublishProfiles\ChromaSlackBot%28default-web-eastus2%29.pubxml" />
+    <None Include="Properties\PublishProfiles\keyboard-slack-bot - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

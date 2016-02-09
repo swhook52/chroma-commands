@@ -43,11 +43,12 @@ namespace ChromaCommand.Api.Services
                         Action = ChromaAction.Clear
                     };
                 case ChromaAction.Spell:
-                    // Spell word
+                    // Spell word #FF0000
                     return new StyleCommand
                     {
                         Action = ChromaAction.Spell,
-                        Parameter = commandParts[1].ToLower()
+                        Parameter = commandParts[1].ToLower(),
+                        Color = GetColor(commandParts[2])
                     };
                 case ChromaAction.Wait:
                     // Wait 1000

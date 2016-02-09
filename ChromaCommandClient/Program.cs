@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Drawing;
 using System.Threading;
 using ChromaCommand.Dto;
@@ -14,7 +15,10 @@ namespace ChromaCommand.Client
         static void Main(string[] args)
         {
             _keyboard = Corale.Colore.Core.Keyboard.Instance;
-            const string connectionString = "Endpoint=sb://chromacommandqueue-ns.servicebus.windows.net/;SharedAccessKeyName=Receiver;SharedAccessKey=cr8iOVFr2dXI9xrdgKfXp3+OsMFoeW9EigSCRoHmFyc=";
+            var connectionString = ConfigurationManager.AppSettings["ChromaStyleQueueReader"];
+            if (string.IsNullOrEmpty(connectionString))
+                throw new Exception("Add your app setting for the azure service bus queue to a custom app.config file.");
+
             var queue = QueueClient.CreateFromConnectionString(connectionString, "ChromaCommandQueue", ReceiveMode.ReceiveAndDelete);
 
             while (true)
@@ -99,21 +103,20 @@ namespace ChromaCommand.Client
             }
         }
 
-        
-
         private static void StyleSpell(string word, Color color)
         {
-            //foreach (char letter in word.ToLower())
-            //{
-            //    Corale.Colore.Razer.Keyboard.Key key = new Corale.Colore.Razer.Keyboard.Key();
-            //    if (key.TryParse(letter, out key))
-            //    {
-            //        _keyboard.SetKey(
-            //            key,
-            //            Corale.Colore.Core.Color(color.R, color.G, color.B, color.A));
-            //        Thread.Sleep(1000);
-            //    }
-            //}
+            foreach (char letter in word.ToUpper())
+            {
+                var letterString = letter.ToString();
+                Corale.Colore.Razer.Keyboard.Key key;
+                if (Enum.TryParse(letterString, out key))
+                {
+                    _keyboard.SetKey(
+                        key,
+                        new Corale.Colore.Core.Color(color.R, color.G, color.B, color.A));
+                    Thread.Sleep(2000);
+                }
+            }
         }
 
         private static void Wait(string milliseconds)
@@ -128,7 +131,8 @@ namespace ChromaCommand.Client
         private static void StylePulse(Color color)
         {
             var pulseColor = new Corale.Colore.Core.Color(color.R, color.G, color.B, color.A);
-            _keyboard.SetBreathing(pulseColor, pulseColor);
+            var secondColor = new Corale.Colore.Core.Color(0, 0, 0, color.A);
+            _keyboard.SetBreathing(new Breathing(pulseColor, pulseColor));
         }
     }
 }
